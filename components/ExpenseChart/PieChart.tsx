@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
 
-const PieChart = () => {
-  return (
-    <div>PieChart</div>
-  )
-}
+const PieChart = ({ data }: any) => {
+  return <div style={{ ...containerStyles }}>PieChart</div>;
+};
 
-export default PieChart
+// JSX Styles
+const containerStyles = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  paddingTop: "28px",
+};
+
+export default PieChart;
