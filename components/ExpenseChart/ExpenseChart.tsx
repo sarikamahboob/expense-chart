@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import PieChart from "./PieChart";
+import PieChart from "../PieChart/PieChart";
+import styles from "./ExpenseChart.module.css";
 
 const ExpenseChart = () => {
   // Expense Data
@@ -35,14 +36,14 @@ const ExpenseChart = () => {
   ];
   const [selectedPeriod, setSelectedPeriod] = useState(data[0]);
   return (
-    <div style={{ ...containerStyles }}>
-      <h1 style={{ ...headerTitle }}>Expense Chart</h1>
-      <div style={{ ...chartStyle }}>
-        <div style={{ ...chartContainerStyles }}>
+    <div className={styles.container}>
+      <h1 className={styles.headerTitle}>Expense Chart</h1>
+      <div className={styles.chart}>
+        <div className={styles.chartContainer}>
           <div>
-            <h2 style={{ ...chartTitleStyle }}>Expenses</h2>
-            <div style={{ ...buttonContainerStyle }}>
-              <div style={{ ...monthStyles }}>
+            <h2 className={styles.chartTitle}>Expenses</h2>
+            <div className={styles.buttonContainer}>
+              <div className={styles.periods}>
                 {data?.map((item) => (
                   <button
                     style={{
@@ -55,7 +56,7 @@ const ExpenseChart = () => {
                           ? "#003EFF"
                           : "#373b47",
                     }}
-                    className="monthButtonStyle"
+                    className={styles.monthButtonStyle}
                     key={item?.period}
                     onClick={() => setSelectedPeriod(item)}
                   >

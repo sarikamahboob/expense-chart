@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 28px;
+}
+
+.legendContainer {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.badge {
+  width: 37px;
+  height: 13px;
+  border-radius: 33px;
+}
+
+.legend p {
+  color: #938fa3;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.32px;
+}

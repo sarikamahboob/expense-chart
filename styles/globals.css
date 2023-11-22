@@ -6,19 +6,3 @@
   box-sizing: border-box;
   font-family: "Helvetica Neue";
 }
-
-.monthButtonStyle {
-  background-color: transparent;
-  border: none;
-  padding: 8px 10px;
-  cursor: pointer;
-  color: #373b47;
-  font-family: Helvetica Neue;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 16px;
-  letter-spacing: 0.84px;
-  text-transform: uppercase;
-  border-radius: 20px;
-}
