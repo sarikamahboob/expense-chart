@@ -2,9 +2,18 @@ import React, { useState } from "react";
 import styles from "./ExpenseChart.module.css";
 import DoughnutChart from "../DoughnutChart/DoughnutChart";
 
+// Interfaces
+interface ExpenseItem {
+  period: string;
+  personal: number;
+  shopping: number;
+  phone: number;
+  other: number;
+}
+
 const ExpenseChart = () => {
   // Expense Data
-  const data = [
+  const data: ExpenseItem[] = [
     {
       period: "1M",
       personal: 150,
@@ -36,7 +45,7 @@ const ExpenseChart = () => {
   ];
 
   // State to manage the selected period
-  const [selectedPeriod, setSelectedPeriod] = useState(data[0]);
+  const [selectedPeriod, setSelectedPeriod] = useState<ExpenseItem>(data[0]);
   return (
     <div className={styles.container}>
       <h1 className={styles.headerTitle}>Expense Chart</h1>

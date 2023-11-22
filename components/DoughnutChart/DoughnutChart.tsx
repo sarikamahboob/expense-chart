@@ -1,9 +1,27 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./DoughnutChart.module.css";
 
-const DoughnutChart = ({ data }: any) => {
+// Interfaces
+interface ExpenseData {
+  period: string;
+  personal: number;
+  shopping: number;
+  phone: number;
+  other: number;
+}
+
+interface LegendItem {
+  text: string;
+  color: string;
+}
+
+interface DoughnutChartProps {
+  data: ExpenseData;
+}
+
+const DoughnutChart: React.FC<DoughnutChartProps> = ({ data }) => {
   // Legend Data
-  const legendData = [
+  const legendData: LegendItem[] = [
     {
       text: "Personal",
       color: "#4C49ED",
@@ -22,7 +40,6 @@ const DoughnutChart = ({ data }: any) => {
     },
   ];
   const canvasRef = useRef(null);
-  const [totalExpense, setTotalExpense] = useState(0);
 
   useEffect(() => {
     const canvas: any = canvasRef.current;
@@ -53,7 +70,6 @@ const DoughnutChart = ({ data }: any) => {
     // Function to draw the doughnut chart on the canvas
     const drawDoughnutChart = () => {
       const total = data ? getTotalExpense() : 0;
-      setTotalExpense(total);
 
       if (data) {
         let startAngle = 1.5 * Math.PI;
@@ -61,6 +77,7 @@ const DoughnutChart = ({ data }: any) => {
         // Draw each slice of the doughnut chart
         Object.keys(data).forEach((key, index) => {
           if (key !== "period") {
+            //@ts-ignore
             const value = data[key];
             const sliceAngle = (value / total) * (2 * Math.PI);
 
