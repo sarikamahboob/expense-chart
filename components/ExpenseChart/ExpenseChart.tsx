@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import PieChart from "../PieChart/PieChart";
 import styles from "./ExpenseChart.module.css";
+import DoughnutChart from "../DoughnutChart/DoughnutChart";
 
 const ExpenseChart = () => {
   // Expense Data
@@ -66,68 +66,11 @@ const ExpenseChart = () => {
               </div>
             </div>
           </div>
-          <PieChart data={selectedPeriod} />
+          <DoughnutChart data={selectedPeriod} />
         </div>
       </div>
     </div>
   );
-};
-
-// JSX Styles
-const containerStyles = {
-  width: "100%",
-  backgroundColor: "#430099",
-  padding: "87px 50px",
-  height: "100vh",
-};
-
-const headerTitle = {
-  color: "#FFF",
-  textAlign: "center" as "center",
-  fontSize: "42px",
-  fontStyle: "normal",
-  fontWeight: 500,
-  lineHeight: "normal",
-  marginBottom: "31px",
-};
-
-const chartStyle = {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-};
-
-const chartContainerStyles = {
-  borderRadius: "40px",
-  background: "#FFF",
-  padding: " 32px 27px",
-  width: "561px",
-};
-
-const chartTitleStyle = {
-  textAlign: "center" as "center",
-  color: "#1F1F23",
-  fontSize: "24px",
-  fontStyle: "normal",
-  fontWeight: 500,
-  lineHeight: "normal",
-  marginBottom: "42px",
-};
-
-const buttonContainerStyle = {
-  display: "flex",
-  justifyContent: "center",
-};
-
-const monthStyles = {
-  borderRadius: "30px",
-  background: "#F5F6FA",
-  padding: "12px 32px",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  gap: "12px",
-  width: "295px",
 };
 
 export default ExpenseChart;

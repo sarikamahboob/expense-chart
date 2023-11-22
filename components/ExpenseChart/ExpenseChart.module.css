@@ -69,3 +69,25 @@
   text-transform: uppercase;
   border-radius: 20px;
 }
+
+/* Responsiveness */
+
+@media only screen and (max-width: 576px) {
+  .chartContainer {
+    width: 100%;
+    padding: 32px 18px;
+  }
+  .periods {
+    padding: 12px 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    width: 100%;
+  }
+  .container {
+    padding: 30px 18px;
+  }
+  .headerTitle {
+    font-size: 35px;
+  }
+}
