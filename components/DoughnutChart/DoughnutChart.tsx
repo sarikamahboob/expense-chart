@@ -40,8 +40,9 @@ const DoughnutChart = ({ data }: any) => {
     const colors = ["red", "#4C49ED", "#9D9BF4", "#4FD18B", "#141197"];
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
-    const radius = Math.min(centerX, centerY) - 10; // Adjust 10 as needed
+    const radius = Math.min(centerX, centerY) - 10;
 
+    // Function to calculate the total expense
     const getTotalExpense = () => {
       if (data) {
         return data.personal + data.shopping + data.phone + data.other;
@@ -49,6 +50,7 @@ const DoughnutChart = ({ data }: any) => {
       return 0; // If data is empty, return 0
     };
 
+    // Function to draw the doughnut chart on the canvas
     const drawDoughnutChart = () => {
       const total = data ? getTotalExpense() : 0;
       setTotalExpense(total);
@@ -56,11 +58,13 @@ const DoughnutChart = ({ data }: any) => {
       if (data) {
         let startAngle = 1.5 * Math.PI;
 
+        // Draw each slice of the doughnut chart
         Object.keys(data).forEach((key, index) => {
           if (key !== "period") {
             const value = data[key];
             const sliceAngle = (value / total) * (2 * Math.PI);
 
+            // Set the fill style and draw the slice
             ctx.fillStyle = colors[index];
             ctx.beginPath();
             ctx.moveTo(centerX, centerY);
@@ -85,7 +89,7 @@ const DoughnutChart = ({ data }: any) => {
         ctx.arc(centerX, centerY, radius * 0.8, 0, 2 * Math.PI);
         ctx.fill();
 
-        // Text style
+        // Text style for total value
         ctx.fillStyle = "#111";
         ctx.font = "500 40px Helvetica Neue";
         ctx.textAlign = "center";
@@ -108,23 +112,26 @@ const DoughnutChart = ({ data }: any) => {
       }
     };
 
+    // Call the function to draw the doughnut chart
     drawDoughnutChart();
   }, [data]);
 
-  console.log(totalExpense);
-
   return (
     <div className={styles.container}>
+      {/* Canvas element */}
       <div className={styles.chartCanvas}>
         <canvas ref={canvasRef} width={264} height={264} />
       </div>
+      {/* Legend items */}
       <div className={styles.legendContainer}>
         {legendData?.map((item: any, index: number) => (
           <div className={styles.legend} key={index}>
+            {/* Coloring badge */}
             <div
               className={styles.badge}
               style={{ backgroundColor: item?.color }}
             ></div>
+            {/* Text label */}
             <p>{item?.text}</p>
           </div>
         ))}

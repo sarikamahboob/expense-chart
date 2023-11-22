@@ -34,17 +34,22 @@ const ExpenseChart = () => {
       other: 1000,
     },
   ];
+
+  // State to manage the selected period
   const [selectedPeriod, setSelectedPeriod] = useState(data[0]);
   return (
     <div className={styles.container}>
       <h1 className={styles.headerTitle}>Expense Chart</h1>
+      {/* Chart Section */}
       <div className={styles.chart}>
         <div className={styles.chartContainer}>
+          {/* Chart Title and Period Buttons */}
           <div>
             <h2 className={styles.chartTitle}>Expenses</h2>
             <div className={styles.buttonContainer}>
               <div className={styles.periods}>
                 {data?.map((item) => (
+                  // Button for each period
                   <button
                     style={{
                       background:
@@ -66,6 +71,7 @@ const ExpenseChart = () => {
               </div>
             </div>
           </div>
+          {/* Doughnut Chart Component */}
           <DoughnutChart data={selectedPeriod} />
         </div>
       </div>
